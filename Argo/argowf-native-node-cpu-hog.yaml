@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Workflow
 metadata:
-  generateName: argowf-chaos-pod-delete-
+  generateName: argowf-chaos-node-cpu-
 spec:
   entrypoint: argowf-chaos
   serviceAccountName: argo-chaos
@@ -46,16 +46,15 @@ spec:
                 engineState: 'active'
                 chaosServiceAccount: litmus-admin
                 experiments:
-                  - name: pod-delete
+                  - name: node-cpu-hog
                     spec:
                       components:
                         env:
+                          - name: NODE_CPU_CORE
+                            value: '1'
+
                           - name: TOTAL_CHAOS_DURATION
-                            value: "10"
-                          - name: CHAOS_INTERVAL
-                            value: "10"
-                          - name: FORCE
-                            value: "false"
+                            value: '240' # in seconds
       container:
         image: lachlanevenson/k8s-kubectl
         command: [sh, -c]
