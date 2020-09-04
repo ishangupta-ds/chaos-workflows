@@ -37,9 +37,9 @@ spec:
                 namespace: {{workflow.parameters.adminModeNamespace}}
               spec:
                 appinfo:
-                  appns: {{workflow.parameters.appNamespace}}
-                  applabel: "app={{workflow.parameters.appLabel}}"
-                  appkind: deployment
+                  appns: kube-system
+                  applabel: "k8s-app=kube-proxy"
+                  appkind: daemonset
                 jobCleanUpPolicy: retain
                 monitoring: false
                 annotationCheck: 'false'
