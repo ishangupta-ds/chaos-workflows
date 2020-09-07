@@ -129,7 +129,7 @@ spec:
                           experimentImage: "litmuschaos/go-runner:ci"
                           env:
                             - name: TARGET_CONTAINER
-                              value: 'nginx'
+                              value: 'kube-proxy'
 
                             - name: MEMORY_CONSUMPTION
                               value: '500'

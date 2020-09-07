@@ -128,7 +128,7 @@ spec:
                           experimentImage: "litmuschaos/go-runner:ci"
                           env:
                             - name: TARGET_CONTAINER
-                              value: 'nginx'
+                              value: 'kube-proxy'
 
                             - name: CPU_CORES
                               value: '1'
